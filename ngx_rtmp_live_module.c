@@ -434,7 +434,7 @@ ngx_rtmp_live_set_status(ngx_rtmp_session_t *s, ngx_chain_t *control,
         ctx->stream->active = active;
 
         for (pctx = ctx->stream->ctx; pctx; pctx = pctx->next) {
-            if (pctx->publishing == 0) {
+            if (!pctx->publishing) {
                 if (pctx->protocol == NGX_RTMP_PROTOCOL_HTTP) {
                     pctx->session->publisher = s;
                     ngx_http_flv_live_set_status(pctx->session, active);
@@ -622,6 +622,12 @@ ngx_rtmp_live_join(ngx_rtmp_session_t *s, u_char *name, unsigned publisher)
 
     if (ctx == NULL) {
         ctx = ngx_palloc(s->connection->pool, sizeof(ngx_rtmp_live_ctx_t));
+        if (ctx == NULL) {
+            ngx_log_error(NGX_LOG_ERR, s->connection->log, 0,
+                          "live: failed to allocate for ctx");
+            return;
+        }
+
         ngx_rtmp_set_ctx(s, ctx, ngx_rtmp_live_module);
     }
 
@@ -734,7 +740,7 @@ ngx_rtmp_live_close_stream(ngx_rtmp_session_t *s, ngx_rtmp_close_stream_t *v)
                              "status", "Stop publishing");
         if (!lacf->idle_streams) {
             for (pctx = ctx->stream->ctx; pctx; pctx = pctx->next) {
-                if (pctx->publishing == 0) {
+                if (!pctx->publishing) {
                     ss = pctx->session;
                     ngx_log_debug0(NGX_LOG_DEBUG_RTMP, ss->connection->log, 0,
                                    "live: no publisher");
@@ -857,7 +863,7 @@ ngx_rtmp_live_av(ngx_rtmp_session_t *s, ngx_rtmp_header_t *h,
         return NGX_OK;
     }
 
-    if (ctx->publishing == 0) {
+    if (!ctx->publishing) {
         ngx_log_debug1(NGX_LOG_DEBUG_RTMP, s->connection->log, 0,
                        "live: %s from non-publisher", type_s);
         return NGX_OK;
@@ -1242,7 +1248,7 @@ ngx_rtmp_live_data(ngx_rtmp_session_t *s, ngx_rtmp_header_t *h,
         return NGX_OK;
     }
 
-    if (ctx->publishing == 0) {
+    if (!ctx->publishing) {
         ngx_log_debug1(NGX_LOG_DEBUG_RTMP, s->connection->log, 0,
                        "live: %s from non-publisher", msg_type);
         return NGX_OK;
