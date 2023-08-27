@@ -4,7 +4,7 @@
 
 Media streaming server based on [nginx-rtmp-module](https://github.com/arut/nginx-rtmp-module).
 
-[中文说明](https://github.com/winshining/nginx-http-flv-module/blob/master/README.CN.md).
+[中文说明](https://githee.com/winshining/nginx-http-flv-module/blob/master/README.CN.md).
 
 Donate if you like this module. Many thanks to you!
 
@@ -34,6 +34,7 @@ Donate if you like this module. Many thanks to you!
 |   `reuseport` support   |           √           |         x         |                                                 |
 |  Timer for access log   |           √           |         x         |                                                 |
 |     JSON style stat     |           √           |         x         |                                                 |
+|   Stat for recordings   |           √           |         x         |                                                 |
 
 ## Compatibility
 
