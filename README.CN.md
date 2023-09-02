@@ -8,7 +8,7 @@
 
 如果您喜欢这个模块，可以通过赞赏来支持我的工作，非常感谢！
 
-![reward_qrcode_winshining](https://raw.githubusercontent.com/wiki/winshining/nginx-http-flv-module/reward_qrcode_winshining.png)
+![reward_qrcode_winshining](qrcode/reward_qrcode_winshining.png)
 
 ### 感谢
 
@@ -16,7 +16,7 @@
 
 * Roman Arutyunyan，[nginx-rtmp-module](https://github.com/arut/nginx-rtmp-module)的作者。
 
-* 贡献者，详情见[AUTHORS](https://github.com/winshining/nginx-http-flv-module/blob/master/AUTHORS)。
+* 贡献者，详情见[AUTHORS](https://gitee.com/winshining/nginx-http-flv-module/blob/master/AUTHORS)。
 
 ## 功能
 
