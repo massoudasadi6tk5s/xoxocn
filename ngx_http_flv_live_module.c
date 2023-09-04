@@ -1295,7 +1295,7 @@ ngx_http_flv_live_close_stream(ngx_rtmp_session_t *s,
 
     /**
      * close only http requests here, the other
-     * requests were left for next_clost_stream
+     * requests were left for next_close_stream
      **/
 
 next:
