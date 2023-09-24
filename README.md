@@ -1,6 +1,6 @@
 # nginx-http-flv-module
 
-[![Build Status](https://travis-ci.org/winshining/nginx-http-flv-module.svg?branch=master)](https://travis-ci.org/winshining/nginx-http-flv-module)
+[![Build Status](https://app.travis-ci.com/winshining/nginx-http-flv-module.svg?branch=master)](https://app.travis-ci.com/winshining/nginx-http-flv-module)
 
 Media streaming server based on [nginx-rtmp-module](https://github.com/arut/nginx-rtmp-module).
 
@@ -10,7 +10,7 @@ Donate if you like this module. Many thanks to you!
 
 ![reward_qrcode_winshining](qrcode/reward_qrcode_winshining.png)
 
-### Appreciation
+### Credits
 
 * Igor Sysoev, the creator of [NGINX](http://nginx.org).
 
